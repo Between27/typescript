@@ -1,0 +1,38 @@
+@startuml
+
+class Ampoule {
+- Couleur : number
+-etat : boolean
+
+
+
++Ampoule()
++Ampoule(couleur : int, puissance: double)
++allumer(): void
++éteindre() : void
++getCouleur() : number
++setCouleur(couleur: number): void
++getOuissance() : number
++setPuissance(puissance: number) :void
++toString(): string
+
+}
+
+
+
+class Spot{
+-amp : Ampoule
+-t : Timer
+
++public constructor(amp: Ampoule, t: Timer)
++setFréquence(fréquence:number): void
++getFréquence() : number
++getCouleur() : number
++getPuissance(): number
++allumer(): void
++éteindre() : void
++clignoter() : void
++clignoter(durée : number) : void
++toString() : string
+}
+@enduml

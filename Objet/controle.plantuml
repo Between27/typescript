@@ -1,0 +1,18 @@
+@startuml controle
+
+class Hanoi {
+    -private m: number;
+    -private n: number;
+
+    +Hanoi(m: number,n: number)
+    +tourVide(): Array<number>
+    +testDisk(k: number, t: Array<number>): boolean
+    +ajouterDisk(k: number, t: Array<number>): Array<number>
+    +tailleDisqueHaut(t: Array<number>): number
+    +retirerDisqueHaut(t: Array<number>): Array<number>
+    +verificationTour(t: Array<number>): boolean
+    +nombreDisque(t: Array<number>): number
+    +tourGauche(): Array<number>
+    +creerJeu(): Array<Array<number>>
+}
+@enduml

@@ -1,0 +1,28 @@
+@@startuml
+class Timer {
+
+}
+
+class Ampoule
+
+Class Spot{
+    -amp : Ampoule
+-t : Timer
+
++public constructor(amp: Ampoule, t: Timer)
++setFréquence(fréquence:number): void
++getFréquence() : number
++getCouleur() : number
++getPuissance(): number
++allumer(): void
++éteindre() : void
++clignoter() : void
++clignoter(durée : number) : void
++toString() : string
+}
+
+Spot "1" -> "1" Ampoule
+Spot "1" -> "1" Timer
+
+
+@@enduml

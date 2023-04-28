@@ -1,0 +1,54 @@
+TD1
+
+J'ai tout  d'abord créer un nouveau sous répertoire avec la commande
+
+mkdir qualdev
+
+Ensuite j'ai créer le fichier compte rendu dans le repertoire qualdev
+
+touch ./qualdev/compte_rendu
+
+En faisant un git status pour vérifier l'état  du dépot, sa couleur était
+rouge alors j'ai du faire un git add qualdev/
+Ce qui a changé l'état du fichier.
+pour appreter le fichier à etre envoyé j'ai utilisé la commande
+git commit -a -m "Création d'un fichier compte rendu"
+
+Pour l'envoyer à distance j'ai utilisé la commande git push
+
+TD2
+
+cd qualdev 
+#entre dans le répertoire créé 
+touch compte_rendu.txt 
+#crée le fichier compte rendu 
+cd .. 
+#retourne dans l'environnement principale 
+git status 
+#vérifie notre travail 
+git add . 
+#permet de suivre toutes les modifications dans git 
+git status 
+#vérifie que qualdev est suivis 
+git commit -m "qualdev commit" 
+#Prendre en compte tous les changements effectuer,  
+#de plus ajout d'un commentaire avec la commande -m 
+git status 
+#vérifier que le dépot est efféctué comme demander dans l'exercice   
+#ajout des lignes de codes effectué dans le fichier compte rendu
+
+#nouvelles commandes
+#après modification d'un fichier:
+#git add .	pour ajouter les modifications au fichier local
+#git commit	pour sauvegarder en local les modifications ( -m 'message' ) pour ajouter un message
+#git push	pour sauvegarder à distance les modifications
+#git pull	pour récupérer les modifications effectué à distance
+
+#lorsque l'on modifie un fichiers qui est accessible à plusieurs personne il ne faut pas oublier de faire "git pull" pour récupérer les modification effectué entre temps, de plus si il y a un conflit il faut réparer le conflit avant de pouvoir effectuer un "git push"
+
+#Pour ajouter un tag:
+#git tag -a (nom du tag) -m (message descriptif)
+#git tag	permet de voir les tags
+#git show (nom d'un tag)	permet de voir les détails d'un tag
+#git push --tag	permet de sauvegarder à distance les tags
+#git push origin (nom d'un tag) permet de sauvegarder les tag un par un
