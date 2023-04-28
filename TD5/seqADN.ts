@@ -34,11 +34,14 @@ function séquenceComplémentaireInversée(seqADN: string): string {
   return res;
 }
 
-function nbre0ccurenceCodon(codon: string, seq: string): number {
-  let res = "";
+function nbreOccurenceCodon(codon: string, seq: string): number {
+  let res = 0;
 
   for (let i = 0; i < seq.length; i += 3)
     if (codon[0] === seq[i] && codon[1] === seq[i + 1] && codon[2] === seq[i + 2]) res++;
 
   return res;
 }
+
+
+console.log(nbreOccurenceCodon("ACG", "GCUACGGAGCUUCGGAGCACGUAG"))
