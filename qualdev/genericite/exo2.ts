@@ -17,6 +17,7 @@ class Stack<T> implements IStack<T> {
     this.elements.push(truc);
   }
   pop(): T | undefined {
+    if (this.isEmpty()) throw new Error("Pile vide")
     return this.elements.pop();
   }
   peek(): T | undefined {
