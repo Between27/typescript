@@ -1,0 +1,32 @@
+@startuml meteo
+
+
+class StationMétéo {
+    - _temperature : number
+    - _humidite : number
+    - _observateurs : Observateur[]
+
+    + StationMeteo(temperature, humidite)
+    + getTemperature() : number
+    + getHumidite() : number
+    + setTemperature(temperature) : void
+    + setHumidite(humidite): void
+    + toString(): string
+}
+
+interface Observateur{
+    + actualise(temperature, humidite) : void
+}
+
+class AffichageGraphique implements Observateur{
+    - tabTemperature : number[]
+    - tabHumidite : number[]
+    + actualise(temperature : number, humidite : number) : void
+    - affiche() : void 
+}
+
+class AfficheurTexte implements Observateur{
+    + actualise(temperature, humidite) : void
+    - affiche (temperature : number, humidite : number) : void
+}
+@enduml
