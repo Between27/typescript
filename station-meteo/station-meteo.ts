@@ -1,6 +1,9 @@
+import { Observateur } from "./observateur";
+
 export class StationMétéo {
   private _temperature: number;
   private _humidité: number;
+  private observateurs : Array<Observateur>
 
   constructor(temperature = 0, humidité = 15) {
     this._temperature = temperature;
@@ -24,6 +27,10 @@ export class StationMétéo {
       throw new Error("L'humidité est exprimée en pourcentage !");
     }
     this._humidité = humidité;
+  }
+
+  public ajoutObservateur(observateur: Observateur): void {
+    this.observateurs.push(observateur);
   }
 
   public toString(): string {
