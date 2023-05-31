@@ -16,7 +16,7 @@ function main(): void {
     aff.actualise(stationMeteo.temperature, stationMeteo.humidité);
     aff2.actualise(stationMeteo.temperature, stationMeteo.humidité);
     stationMeteo.humidité--;
-    stationMeteo.temperature += 2;
+    stationMeteo.temperature += 1;
   }
 }
 
