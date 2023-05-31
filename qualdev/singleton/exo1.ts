@@ -2,7 +2,7 @@ class CompteBancaire {
   private _numero: number;
   private _solde: number;
 
-  constructor(numero: number, solde: number) {
+  constructor(numero: number, solde = 0) {
     this._numero = numero;
     this._solde = solde;
   }
@@ -16,11 +16,18 @@ class CompteBancaire {
   }
 
   debiter(montant: number): void {
-    if (this._solde < montant) throw new Error("Solde insuffisant");
+    if (this._solde < montant) {
+      Journalisation.instance.journaliser("Solde insuffisant");
+      return;
+    }
     this._solde -= montant;
   }
 
   crediter(montant: number): void {
+    Journalisation.instance.journaliser(
+      "Compte " + this._numero + " : Crédit de " + montant + " €"
+    );
+      Multiton
     this._solde += montant;
   }
 }
@@ -29,13 +36,15 @@ class Journalisation {
   private static _instance: Journalisation;
   private operations = new Array<string>();
 
-  private constructor() {}
+  private constructor() {
+    this.operations = [];
+  }
 
   static get instance(): Journalisation {
-    if (!Journalisation._instance) {
-      Journalisation._instance = new Journalisation();
+    if (!this._instance) {
+      this._instance = new Journalisation();
     }
-    return Journalisation._instance;
+    return this._instance;
   }
 
   journaliser(operation: string): void {
@@ -52,18 +61,24 @@ class Journalisation {
   }
 }
 
+
+class Multiton {
+  private static _instaces : Map<string, Multiton>
+  private _operations : string[]
+
+  private constructor() {
+    this._operations = []
+  }
+
+  static getInstance (key : string): void{
+    if (!Multiton._instaces.has(key))
+  }
+}
+
 function main(): void {
-  const journal = Journalisation.instance;
-  journal.journaliser("Creation du compte bancaire");
-  journal.journaliser("Débit de 1000€");
-  journal.journaliser("Crédit de 2000€");
-  journal.journaliser("Débit de 500€");
-
-  const journal2 = Journalisation.instance;
-  journal2.journaliser("Creation du compte bancaire");
-
-  console.log("Affichage de journale");
-  journal.afficher();
+  const cb1 = new CompteBancaire(1234, 10000);
+  cb1.crediter(1000);
+  Journalisation.instance.afficher();
 }
 
 main();

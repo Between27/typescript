@@ -18,6 +18,17 @@ function main(): void {
     stationMeteo.humidité--;
     stationMeteo.temperature += 1;
   }
+  for (let p = 0; p < 10; p++) {
+    console.log("Appuyez sur entrée pour le prochain affichage");
+    rs.question();
+    aff.actualise(stationMeteo.temperature, stationMeteo.humidité);
+    aff2.actualise(stationMeteo.temperature, stationMeteo.humidité);
+    stationMeteo.humidité++;
+    stationMeteo.temperature -= 3;
+  }
+
+
+
 }
 
 main();
