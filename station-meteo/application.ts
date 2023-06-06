@@ -20,7 +20,7 @@ function main(): void {
     aff2.actualise(stationMeteo.temperature, stationMeteo.humidité);
     journal.journaliser(p, stationMeteo.temperature, stationMeteo.humidité);
     stationMeteo.humidité--;
-    stationMeteo.temperature += 2;
+    stationMeteo.temperature += 1;
   }
   console.log("1. pour l'affichage du journal");
   console.log("2. pour l'affichage d'une mesure");
