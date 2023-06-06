@@ -12,10 +12,9 @@ export class AfficheurGraphique implements Observateur {
   public actualise(temperature: number, humidité: number): void {
     this.tabTemperature.push(temperature);
     this.tabHumidité.push(humidité);
-    this.affiche();
   }
 
-  private affiche(): void {
+  affiche(): void {
     console.log(asciichart.plot([this.tabTemperature, this.tabHumidité]));
   }
 }

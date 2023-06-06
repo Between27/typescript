@@ -27,7 +27,7 @@ class CompteBancaire {
     Journalisation.instance.journaliser(
       "Compte " + this._numero + " : Crédit de " + montant + " €"
     );
-      Multiton
+    Multiton;
     this._solde += montant;
   }
 }
@@ -61,17 +61,16 @@ class Journalisation {
   }
 }
 
-
 class Multiton {
-  private static _instaces : Map<string, Multiton>
-  private _operations : string[]
+  private static _instaces: Map<string, Multiton>;
+  private _operations: string[];
 
   private constructor() {
-    this._operations = []
+    this._operations = [];
   }
 
-  static getInstance (key : string): void{
-    if (!Multiton._instaces.has(key))
+  static getInstance(key: string): void {
+    if (!Multiton._instaces.has(key)) Multiton._instaces.set(key, new Multiton());
   }
 }
 
